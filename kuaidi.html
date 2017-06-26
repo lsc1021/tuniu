@@ -13,8 +13,15 @@
     <script type="text/javascript" src="js/zepto.fx.touch.js"></script>
     <script src="js/style.js"></script>
     <script src="js/kuaidi.js"></script>
+    <link rel="stylesheet" href="css/media.css">
 </head>
 <style>
+    body {
+        max-width: 1000px;
+        min-width: 320px;
+        margin: 0 auto;
+    }
+    
     .card {
         box-shadow: 0 0 0 rgba(0, 0, 0, 0);
         background-color: rgba(0, 0, 0, 0);
@@ -25,7 +32,7 @@
     }
     
     .card-content {
-        margin-top: .2rem;
+        margin-top: .5rem;
         border-radius: 15px;
         background-color: rgba(0, 150, 136, 0.41);
     }
@@ -34,6 +41,12 @@
         color: blue;
         border-radius: 15px;
         background-color: #FF9800;
+    }
+    
+    .title {
+        font-size: 1rem;
+        background-color: #8BC34A;
+        color: #3F51B5;
     }
 </style>
 
@@ -93,7 +106,6 @@
                     </ul>
                 </div>
 
-
                 <div class="content-block">
                     <p><a href="#" class="button button-big button-round">查询</a></p>
                 </div>
@@ -138,8 +150,6 @@
                 nam = v;
             }
         })
-        console.log(nam);
-        console.log(num);
         $.ajax({
             type: "get",
             url: "php/kuaidi.php",
@@ -149,7 +159,6 @@
             },
             dataType: "json",
             success: function(data) {
-                console.log(data);
                 if (data.message == "ok") {
                     $.each(data.data, function(i, v) {
                         var result = zhuan(v);
@@ -160,11 +169,6 @@
                     var err = '<div class="card-content"><div class="card-content-inner err">' + data.message + '</div></div>'
                     $("#xiangxi").html(err);
                 }
-
-                // console.log(1);
-
-
-
             },
             error: function(res) {
                 console.log(res);

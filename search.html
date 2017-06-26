@@ -13,6 +13,7 @@
     <script type="text/javascript" src="js/zepto.fx.touch.js"></script>
     <link rel="stylesheet" href="css/style.css">
     <script src="js/style.js"></script>
+    <link rel="stylesheet" href="css/media.css">
 </head>
 
 <body>
@@ -130,7 +131,6 @@
                         seat2: seat2,
                         seat3: seat3,
                     }
-                    console.log(objects);
                     var result = compiled(objects);
                     $("#content").append(result);
                 })
@@ -140,9 +140,7 @@
             }
 
         },
-        error: function(data) {
-            console.log(data);
-        }
+        error: function(data) {}
     });
 </script>
 
