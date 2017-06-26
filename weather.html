@@ -266,6 +266,8 @@
     var huan = _.template(temp);
 
     function nihao(didian) {
+        $("#hourweather").html("");
+        $("#dayweather").html("");
         $.ajax({
             type: "get",
             url: "php/1.php",
